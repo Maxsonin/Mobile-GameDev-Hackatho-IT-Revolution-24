@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://st1v0fmsx3mc"]
+
+[ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_e00lh"]
+[ext_resource type="PackedScene" uid="uid://m78i1ve0lx6k" path="res://scenes/level2/pig.tscn" id="2_8bon0"]
+[ext_resource type="PackedScene" uid="uid://dp7x30e1k7urr" path="res://scenes/level2/npc.tscn" id="3_p0pyx"]
+[ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="4_lwv3j"]
+
+[sub_resource type="Animation" id="Animation_7euw4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p071t"]
+resource_name = "start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8x6bn"]
+_data = {
+"RESET": SubResource("Animation_7euw4"),
+"start": SubResource("Animation_p071t")
+}
+
+[node name="Level3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00lh")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 4, 65536, 65536, 5, 131072, 65536, 5, 196608, 65536, 5, 131073, 131072, 5, 65537, 131072, 5, 1, 131072, 4, 2, 131072, 4, 65538, 131072, 5, 131074, 131072, 5, 196610, 131072, 5, 196609, 131072, 5, 262145, 131072, 5, 262144, 65536, 5, 3, 65536, 1, 17, 196608, 4, 16, 131072, 4, 15, 131072, 4, 14, 131072, 4, 13, 131072, 4, 12, 131072, 4, 11, 131072, 4, 10, 131072, 4, 9, 131072, 4, 8, 131072, 4, 7, 131072, 4, 6, 131072, 4, 5, 131072, 4, 4, 196608, 1, 65553, 196608, 5, 65539, 65536, 1, 131082, 131072, 5, 65546, 131072, 5, 65545, 131072, 5, 65544, 131072, 5, 65543, 131072, 5, 65542, 131072, 5, 65541, 131072, 5, 65540, 196608, 1, 131076, 196608, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 262146, 131072, 5, 262148, 196608, 1, 196612, 196608, 1, 196613, 131072, 5, 131077, 131072, 5, 131078, 131072, 5, 196614, 131072, 5, 262150, 131072, 5, 262149, 131072, 5, 262151, 131072, 5, 196615, 131072, 5, 131079, 131072, 5, 131080, 131072, 5, 196616, 131072, 5, 262152, 131072, 5, 262153, 131072, 5, 196617, 131072, 5, 131081, 131072, 5, 196618, 131072, 5, 262154, 131072, 5, 262155, 131072, 5, 196619, 131072, 5, 131083, 131072, 5, 65547, 131072, 5, 65548, 131072, 5, 131084, 131072, 5, 196620, 131072, 5, 262156, 131072, 5, 262157, 131072, 5, 196621, 131072, 5, 131085, 131072, 5, 65549, 131072, 5, 65550, 131072, 5, 131086, 131072, 5, 196622, 131072, 5, 262158, 131072, 5, 262159, 131072, 5, 196623, 131072, 5, 131087, 131072, 5, 65551, 131072, 5, 65552, 131072, 5, 131088, 131072, 5, 196624, 131072, 5, 262160, 131072, 5, 262161, 196608, 5, 196625, 196608, 5, 131089, 196608, 5, 327680, 65536, 5, 393216, 65536, 5, 458752, 65536, 5, 524288, 65536, 6, 524289, 131072, 6, 524290, 131072, 6, 524291, 131072, 6, 524292, 131072, 6, 524293, 131072, 6, 524294, 131072, 6, 524295, 131072, 6, 524296, 131072, 6, 524297, 131072, 6, 524298, 131072, 6, 524299, 131072, 6, 524300, 131072, 6, 524301, 131072, 6, 524302, 131072, 6, 524303, 131072, 6, 524304, 131072, 6, 524305, 196608, 6, 458769, 196608, 5, 393233, 131072, 2, 327697, 131072, 0, 393222, 131072, 2, 327686, 131072, 0, 327685, 131072, 0, 327684, 262144, 1, 327683, 65536, 1, 327682, 131072, 5, 327681, 131072, 5, 393217, 131072, 5, 458753, 131072, 5, 458754, 131072, 5, 393218, 131072, 5, 393219, 65536, 2, 458755, 131072, 5, 458756, 131072, 5, 393220, 131072, 2, 393221, 131072, 2, 458757, 131072, 5, 458758, 131072, 5, 458759, 131072, 5, 393223, 131072, 2, 327687, 131072, 0, 327688, 131072, 0, 393224, 131072, 2, 458760, 131072, 5, 458761, 131072, 5, 393225, 131072, 2, 327689, 131072, 0, 327690, 131072, 0, 393226, 131072, 2, 458762, 131072, 5, 458763, 131072, 5, 393227, 131072, 2, 327691, 131072, 0, 327692, 131072, 0, 393228, 131072, 2, 458764, 131072, 5, 458765, 131072, 5, 393229, 131072, 2, 327693, 131072, 0, 327694, 131072, 0, 393230, 131072, 2, 458766, 131072, 5, 458767, 131072, 5, 393231, 131072, 2, 327695, 131072, 0, 327696, 131072, 0, 393232, 131072, 2, 458768, 131072, 5, -65532, 131072, 1, -65533, 131072, 1)
+
+[node name="Pig" parent="." instance=ExtResource("2_8bon0")]
+position = Vector2(235, 93)
+
+[node name="Npc" parent="." instance=ExtResource("3_p0pyx")]
+position = Vector2(84, 34)
+
+[node name="MainCharacter" parent="." instance=ExtResource("4_lwv3j")]
+position = Vector2(64, 42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8x6bn")
+}
+autoplay = "start"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 20.0
+offset_right = 182.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 5
+text = "Котигорошку! Допоможи бабці
+спіймати свиню!"
+visible_characters = 0
+visible_ratio = 0.0
