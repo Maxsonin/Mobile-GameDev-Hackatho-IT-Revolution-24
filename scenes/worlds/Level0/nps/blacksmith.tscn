@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7130qmktbblk"]
+
+[ext_resource type="Texture2D" uid="uid://dgj4d8da2gdum" path="res://scenes/worlds/Level0/level0Assets/Blacksmith/BLACKSMITH.png" id="1_eyrpp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrxig"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ayg"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upfrr"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wq1s"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knbf8"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjlkf"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28wvl"]
+atlas = ExtResource("1_eyrpp")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7qfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrxig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ayg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upfrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wq1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knbf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjlkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28wvl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llwfx"]
+size = Vector2(56, 56)
+
+[node name="Blacksmith" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.583333, 0.583333)
+sprite_frames = SubResource("SpriteFrames_d7qfh")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.879125
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_llwfx")
