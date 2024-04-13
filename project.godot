@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/mainmenu/main_menu.tscn"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/size/viewport_width=292
