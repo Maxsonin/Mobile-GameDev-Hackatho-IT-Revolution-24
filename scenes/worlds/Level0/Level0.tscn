@@ -1,15 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkrtiq007hbu6"]
+[gd_scene load_steps=7 format=3 uid="uid://bkrtiq007hbu6"]
 
-[ext_resource type="Script" path="res://scenes/worlds/Level0/Level0.gd" id="1_3sbkq"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_gw2je"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="5_b2qqm"]
 [ext_resource type="PackedScene" uid="uid://d07swamehyfdw" path="res://scenes/UIes/Level0UI.tscn" id="6_ncm5q"]
 [ext_resource type="Script" path="res://scenes/worlds/Level0/ResourseManager.gd" id="7_ipqwr"]
-[ext_resource type="PackedScene" uid="uid://c7130qmktbblk" path="res://scenes/worlds/Level0/nps/blacksmith.tscn" id="7_k56af"]
+[ext_resource type="PackedScene" uid="uid://c7xhhby0desrl" path="res://scenes/worlds/Level0/nps/blacksmithNPS.tscn" id="7_kn7ii"]
 [ext_resource type="PackedScene" uid="uid://bh0emg14n1yjp" path="res://scenes/worlds/Level0/Collectbles/random_spawner.tscn" id="9_fo4in"]
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_3sbkq")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_gw2je")
@@ -32,7 +30,6 @@ script = ExtResource("7_ipqwr")
 
 [node name="RandomSpawner" parent="." instance=ExtResource("9_fo4in")]
 
-[node name="Blacksmith" parent="." instance=ExtResource("7_k56af")]
+[node name="Npc" parent="." instance=ExtResource("7_kn7ii")]
 position = Vector2(64, 192)
-
-[connection signal="area_entered" from="Blacksmith" to="MainCharacter" method="_on_blacksmith_area_entered"]
+scale = Vector2(1.5, 1.5)

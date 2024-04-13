@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7xhhby0desrl"]
+
+[ext_resource type="Texture2D" uid="uid://dgj4d8da2gdum" path="res://scenes/worlds/Level0/level0Assets/Blacksmith/BLACKSMITH.png" id="1_83o3o"]
+
+[sub_resource type="GDScript" id="GDScript_mbqkn"]
+script/source = "extends Node2D
+
+@onready var ui = $\"../MainCharacter/UI\"
+@onready var resourse_manager = $\"../ResourseManager\"
+
+var phrases = [\"Збери 10 металу, 20 дерева та 15 каміння\", \"Чудово! Ось твоя зброя!\"]
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if ((resourse_manager.metal >= 10) and (resourse_manager.wood >= 20) and (resourse_manager.stone >= 15)):
+		ui.visible = false
+		$Label.text = phrases[1]
+		$AnimationPlayer.play(\"new_animation\")
+	else:
+		ui.visible = true
+		$Label.text = phrases[0]
+		$AnimationPlayer.play(\"new_animation\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu7p5"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wo7k"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndlla"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ste87"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4dfl"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om4si"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jir"]
+atlas = ExtResource("1_83o3o")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqr7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu7p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wo7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndlla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ste87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4dfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om4si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jir")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe5k6"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_yne0t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ypdra"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nieni"]
+_data = {
+"RESET": SubResource("Animation_yne0t"),
+"new_animation": SubResource("Animation_ypdra")
+}
+
+[node name="Npc" type="CharacterBody2D"]
+script = SubResource("GDScript_mbqkn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_hqr7g")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.496903
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qe5k6")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 5
+text = "texs"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nieni")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
