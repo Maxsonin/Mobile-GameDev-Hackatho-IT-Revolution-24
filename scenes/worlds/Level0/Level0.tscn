@@ -21,6 +21,7 @@ position = Vector2(154, 121)
 scale = Vector2(2, 2)
 
 [node name="UI" parent="MainCharacter" instance=ExtResource("6_ncm5q")]
+visible = false
 offset_left = -36.0
 offset_top = -25.0
 offset_right = 47.0
@@ -33,3 +34,5 @@ script = ExtResource("7_ipqwr")
 
 [node name="Blacksmith" parent="." instance=ExtResource("7_k56af")]
 position = Vector2(64, 192)
+
+[connection signal="area_entered" from="Blacksmith" to="MainCharacter" method="_on_blacksmith_area_entered"]

@@ -27,3 +27,7 @@ func player_movement(delta: float) -> void:
 		animated_sprite_2d.play("Idle")
 		
 	move_and_slide()
+
+
+func _on_blacksmith_area_entered(area):
+	pass # Replace with function body.
