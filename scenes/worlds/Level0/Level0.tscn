@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkrtiq007hbu6"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrtiq007hbu6"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_gw2je"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="5_b2qqm"]
 [ext_resource type="PackedScene" uid="uid://d07swamehyfdw" path="res://scenes/UIes/Level0UI.tscn" id="6_ncm5q"]
+[ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="7_e77nr"]
 [ext_resource type="Script" path="res://scenes/worlds/Level0/ResourseManager.gd" id="7_ipqwr"]
 [ext_resource type="PackedScene" uid="uid://c7xhhby0desrl" path="res://scenes/worlds/Level0/nps/blacksmithNPS.tscn" id="7_kn7ii"]
 [ext_resource type="PackedScene" uid="uid://bh0emg14n1yjp" path="res://scenes/worlds/Level0/Collectbles/random_spawner.tscn" id="9_fo4in"]
@@ -33,3 +34,7 @@ script = ExtResource("7_ipqwr")
 [node name="Npc" parent="." instance=ExtResource("7_kn7ii")]
 position = Vector2(64, 192)
 scale = Vector2(1.5, 1.5)
+
+[node name="InvisibleWall" parent="." instance=ExtResource("7_e77nr")]
+position = Vector2(312, -8)
+scale = Vector2(50, 1)
