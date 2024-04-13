@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbj66ikqjjlaa"]
+
+[ext_resource type="Script" path="res://scenes/worlds/Level0/Collectbles/collectble.gd" id="1_neo8j"]
+
+[node name="Collectble" type="Area2D"]
+script = ExtResource("1_neo8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 4)
+scale = Vector2(0.0434783, 0.0277778)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

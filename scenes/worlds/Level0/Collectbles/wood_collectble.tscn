@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs1rjx13pn7tl"]
+
+[ext_resource type="PackedScene" uid="uid://cbj66ikqjjlaa" path="res://scenes/worlds/Level0/Collectbles/collectble.tscn" id="1_6fcwp"]
+[ext_resource type="Script" path="res://scenes/worlds/Level0/Collectbles/WoodCollectble.gd" id="2_rwd0f"]
+[ext_resource type="Texture2D" uid="uid://cv78wxhxv8qj7" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/wood.jpg" id="3_2sfn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dunrl"]
+size = Vector2(16, 8)
+
+[node name="WoodCollectble" instance=ExtResource("1_6fcwp")]
+script = ExtResource("2_rwd0f")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.00833333, 0.00416667)
+texture = ExtResource("3_2sfn2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_dunrl")

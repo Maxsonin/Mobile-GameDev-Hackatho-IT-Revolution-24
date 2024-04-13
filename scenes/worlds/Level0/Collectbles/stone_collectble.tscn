@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvkdomyb1omlg"]
+
+[ext_resource type="PackedScene" uid="uid://cbj66ikqjjlaa" path="res://scenes/worlds/Level0/Collectbles/collectble.tscn" id="1_jy2bm"]
+[ext_resource type="Script" path="res://scenes/worlds/Level0/Collectbles/stone_collectble.gd" id="2_54o8j"]
+[ext_resource type="Texture2D" uid="uid://ca4tko4nls1ah" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/b918860d89d6ce3139dc89f8a3843aa6.png" id="3_ipaac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fifd2"]
+size = Vector2(16, 8)
+
+[node name="StoneCollectble" instance=ExtResource("1_jy2bm")]
+script = ExtResource("2_54o8j")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_ipaac")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_fifd2")
