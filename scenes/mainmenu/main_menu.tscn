@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg3mmb5dvl08h"]
+
+[ext_resource type="Script" path="res://scenes/mainmenu/main_menu.gd" id="1_2wcgx"]
+[ext_resource type="Script" path="res://scenes/mainmenu/ParallaxBackground.gd" id="2_whsxm"]
+[ext_resource type="Texture2D" uid="uid://cg8t2ob04yn3j" path="res://img/background/nature_4/1.png" id="3_omut2"]
+[ext_resource type="Texture2D" uid="uid://86g0bkkh6lmp" path="res://img/background/nature_4/2.png" id="4_s4lm4"]
+[ext_resource type="Texture2D" uid="uid://cvvw2vj4famh1" path="res://img/background/nature_4/3.png" id="5_y4sq4"]
+[ext_resource type="Texture2D" uid="uid://c2adphgcwlyvg" path="res://img/background/nature_4/4.png" id="6_qyx4u"]
+[ext_resource type="Texture2D" uid="uid://by400debk8war" path="res://img/buttons/play.png" id="7_0pagw"]
+[ext_resource type="Script" path="res://scenes/mainmenu/Control.gd" id="7_wghmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc0g1"]
+size = Vector2(383.56, 169.48)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wcgx")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 287.0
+offset_bottom = 132.0
+script = ExtResource("7_wghmq")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(90, 7)
+scale = Vector2(0.239796, 0.208333)
+texture_normal = ExtResource("7_0pagw")
+shape = SubResource("RectangleShape2D_vc0g1")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_whsxm")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.125, 0.125)
+motion_mirroring = Vector2(292, 0)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(146, 67.5)
+scale = Vector2(0.506944, 0.416667)
+texture = ExtResource("3_omut2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(292, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(146.188, 67.4375)
+scale = Vector2(0.506293, 0.417052)
+texture = ExtResource("4_s4lm4")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(292, 0)
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(146, 67.5)
+scale = Vector2(0.506944, 0.416667)
+texture = ExtResource("5_y4sq4")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(292, 0)
+
+[node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(146, 67)
+scale = Vector2(0.506944, 0.41358)
+texture = ExtResource("6_qyx4u")
+
+[connection signal="pressed" from="Control/TouchScreenButton" to="Control" method="_on_touch_screen_button_pressed"]
