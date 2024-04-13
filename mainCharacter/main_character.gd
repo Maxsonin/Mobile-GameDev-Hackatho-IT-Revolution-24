@@ -1,8 +1,17 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var camera_2d = $Camera2D
+@onready var tile_map = $"../TileMap"
+
+@export var right_limit: int
+@export var bottom_limit: int
 
 const SPEED: int = 100
+
+func _ready():
+	camera_2d.limit_right = right_limit 
+	camera_2d.limit_bottom = bottom_limit
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)

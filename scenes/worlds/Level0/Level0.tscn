@@ -18,6 +18,8 @@ layer_0/tile_data = PackedInt32Array(0, 4, 0, 65536, 4, 0, 131072, 4, 0, 196608,
 [node name="MainCharacter" parent="." instance=ExtResource("5_b2qqm")]
 position = Vector2(132, 108)
 scale = Vector2(2, 2)
+right_limit = 590
+bottom_limit = 350
 
 [node name="UI" parent="MainCharacter" instance=ExtResource("6_ncm5q")]
 visible = false
@@ -40,19 +42,19 @@ position = Vector2(62, 192)
 scale = Vector2(1.8, 1.5)
 
 [node name="BottomInvisibleWall" parent="." instance=ExtResource("7_e77nr")]
-position = Vector2(304, 344)
+position = Vector2(303, 358)
 scale = Vector2(50, 1)
 
 [node name="TopInvisibleWall" parent="." instance=ExtResource("7_e77nr")]
-position = Vector2(312, 8)
+position = Vector2(304, -6)
 scale = Vector2(50, 1)
 
 [node name="RightInvisibleWall" parent="." instance=ExtResource("7_e77nr")]
-position = Vector2(584, 168)
+position = Vector2(600, 166)
 rotation = 1.5708
 scale = Vector2(50, 1)
 
 [node name="LeftInvisibleWall" parent="." instance=ExtResource("7_e77nr")]
-position = Vector2(8, 184)
+position = Vector2(-8, 184)
 rotation = 1.5708
 scale = Vector2(50, 1)
