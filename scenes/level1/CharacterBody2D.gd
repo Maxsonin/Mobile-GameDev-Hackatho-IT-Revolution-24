@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var label = $Label
 @onready var b1 = $Control/help
 @onready var b2 = $Control/nothelp
-
+@onready var panel = $Panel
 var finish = false
 
 var speedtext = 0.5
@@ -11,11 +11,14 @@ var speedtext = 0.5
 func _ready():
 	b1.visible=false
 	b2.visible=false
+	panel.visible=false
+	label.visible=false
 	$Control/answer.visible=false
 	$Control/notanswer.visible=false
 	$Control/notanswer2.visible=false
 
 func _process(delta):
+	panel.visible=label.visible
 	if (!finish):
 		if (delta * speedtext + label.visible_ratio > 1):
 			label.visible_ratio=1
@@ -42,6 +45,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "MainCharacter":
+		label.visible=true
 		label.visible_ratio=0
 		label.text="Привіт! Нумо перевіримо твою кмітливість, синку!. Розгадай но загадку мою!"
 
