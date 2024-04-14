@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://6nuasygrlu5y"]
+
+[ext_resource type="Script" path="res://scenes/bossfight/fire_ball.gd" id="1_65nbu"]
+[ext_resource type="Script" path="res://scenes/bossfight/MoveComp.gd" id="1_vk6b4"]
+[ext_resource type="Texture2D" uid="uid://c27rus5vpjri" path="res://img/vorms/Fire Ball/Move.png" id="1_wdjo3"]
+
+[sub_resource type="GDScript" id="GDScript_gwety"]
+script/source = "extends CharacterBody2D
+
+#signal hit_character
+
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if body.name == \"MainCharacter\":
+		#print(\"dead\")
+		#hit_character.emit()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g0yl"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7cew"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyq3"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xnx6"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2kya"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33n7a"]
+atlas = ExtResource("1_wdjo3")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68j38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g0yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7cew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhyq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xnx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2kya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33n7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0fh3"]
+radius = 4.0
+
+[node name="FireBall" type="Node2D"]
+script = ExtResource("1_65nbu")
+
+[node name="MoveComp" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_vk6b4")
+actor = NodePath("..")
+velocity = Vector2(-60, 0)
+
+[node name="FireBall" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_gwety")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireBall"]
+position = Vector2(2, 0)
+scale = Vector2(1, 0.913043)
+sprite_frames = SubResource("SpriteFrames_68j38")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="FireBall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireBall/Area2D"]
+position = Vector2(-1, 0)
+scale = Vector2(1, 0.913043)
+shape = SubResource("CircleShape2D_t0fh3")
+
+[connection signal="body_entered" from="FireBall/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="FireBall/Area2D" to="FireBall" method="_on_area_2d_body_entered"]

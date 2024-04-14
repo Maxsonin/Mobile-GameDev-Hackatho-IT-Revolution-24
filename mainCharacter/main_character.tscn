@@ -1,10 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://085xg8eitu0h"]
+[gd_scene load_steps=36 format=3 uid="uid://085xg8eitu0h"]
 
 [ext_resource type="Script" path="res://mainCharacter/main_character.gd" id="1_fi6lc"]
 [ext_resource type="Texture2D" uid="uid://cds7s0ohyya55" path="res://mainCharacter/mainCharacterAssets/player.png" id="2_t6gcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ni7m4"]
-size = Vector2(8, 4)
+size = Vector2(10, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stb3r"]
 atlas = ExtResource("2_t6gcb")
@@ -244,20 +244,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7nw"]
+size = Vector2(4, 8)
+
 [node name="MainCharacter" type="CharacterBody2D"]
-y_sort_enabled = true
 script = ExtResource("1_fi6lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ni7m4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_vthp0")
-animation = &"Idle"
+animation = &"Right"
 autoplay = "Idle"
-offset = Vector2(0, -13)
+frame_progress = 0.884278
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
@@ -268,3 +270,11 @@ limit_bottom = 271
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ig7nw")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

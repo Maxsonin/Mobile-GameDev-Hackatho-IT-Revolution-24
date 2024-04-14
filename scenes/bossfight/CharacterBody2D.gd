@@ -2,14 +2,13 @@ extends CharacterBody2D
 var speed=60
 var damage=false
 var dead=false
-@onready var fire=$"../CharacterBody2D2"
+@onready var fire=$"../FireBall"
 @onready var anim=$AnimatedSprite2D
 @onready var fireanime=$"../CharacterBody2D2/AnimatedSprite2D"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim.play("walk")
-	fire.visible=false
-	fire.position=position
 	pass # Replace with function body.
 
 
@@ -25,13 +24,13 @@ func _process(delta):
 			position.y=1
 			speed=-speed
 			attack()
-	if(damage):
-			fire.visible=true
-			fire.position.x-=150*delta
-			fireanime.play("default")
-	else:
-			fire.visible=false
-			fire.position=position
+	#if(damage):
+			#fire.visible=true
+			#fire.position.x-=150*delta
+			#fireanime.play("default")
+	#else:
+			#fire.visible=false
+			#fire.position=position
 	pass
 
 
@@ -52,6 +51,6 @@ func _on_animated_sprite_2d_animation_looped():
 func _on_area_2d_body_entered(body):
 	if(body.name=="CharacterBody2D"):
 		anim.play("death")
-		await get_tree().create_timer(1.0).timeout
 		dead=true
+		await get_tree().create_timer(1.0).timeout
 	pass # Replace with function body.
