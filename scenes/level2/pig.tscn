@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://m78i1ve0lx6k"]
+[gd_scene load_steps=22 format=3 uid="uid://m78i1ve0lx6k"]
 
 [ext_resource type="Texture2D" uid="uid://1asfxuvl67nx" path="res://img/pig.png" id="1_hejlg"]
 [ext_resource type="Script" path="res://scenes/level2/pig.gd" id="1_jflp1"]
@@ -133,6 +133,9 @@ radius = 15.0333
 [sub_resource type="CircleShape2D" id="CircleShape2D_brw8s"]
 radius = 17.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd6q1"]
+size = Vector2(7, 6)
+
 [node name="Pig" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
@@ -163,8 +166,16 @@ debug_color = Color(0.866667, 0.258824, 0.619608, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_brw8s")
 
+[node name="StoiloArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoiloArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qd6q1")
+debug_color = Color(0.913725, 0.203922, 0.52549, 0.419608)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="WallsColide" to="." method="_on_walls_colide_body_entered"]
 [connection signal="body_exited" from="WallsColide" to="." method="_on_walls_colide_body_exited"]
+[connection signal="body_entered" from="StoiloArea" to="." method="_on_stoilo_area_body_entered"]

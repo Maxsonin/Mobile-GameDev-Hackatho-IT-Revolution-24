@@ -7,6 +7,7 @@ var hit_wall = false
 var wall = null
 
 signal pig_left_screen
+signal in_stoilo
 
 func _physics_process(delta: float) -> void:
 	# 280 127
@@ -50,5 +51,8 @@ func _on_walls_colide_body_entered(body: Node2D) -> void:
 func _on_walls_colide_body_exited(body: Node2D) -> void:
 	if body.name == "MainCharacter":
 		speed = 33
-	else:
-		print("nag")
+
+
+func _on_stoilo_area_body_entered(body: Node2D) -> void:
+	if body.name == "Stoilo":
+		in_stoilo.emit()
