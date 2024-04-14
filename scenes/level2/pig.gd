@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 24
+var speed = 19
 var player: Node2D = null
 var running_away = false
 var hit_wall = false
@@ -50,7 +50,7 @@ func _on_walls_colide_body_entered(body: Node2D) -> void:
 
 func _on_walls_colide_body_exited(body: Node2D) -> void:
 	if body.name == "MainCharacter":
-		speed = 24
+		speed = 19
 
 
 func _on_stoilo_area_body_entered(body: Node2D) -> void:
