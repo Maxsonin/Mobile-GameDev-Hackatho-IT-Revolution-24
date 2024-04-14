@@ -5,12 +5,13 @@ extends CharacterBody2D
 @onready var b2 = $Control/nothelp
 @onready var panel = $Panel
 var finish = false
-
+var proc = false
 var speedtext = 0.5
 
 func _ready():
 	b1.visible=false
 	b2.visible=false
+	proc=false
 	panel.visible=false
 	label.visible=false
 	$Control/answer.visible=false
@@ -28,26 +29,28 @@ func _process(delta):
 			b1.visible=true
 			b2.visible=true
 		if (label.visible_ratio>=0.95 and label.text=="
-		Ось слухай! 
-		Давно відомий він тобі:
-		Коли на сонечку дрімає,
-		Він колискову сам собі
-		Під ніс тихесенько співає.
-		Що в пісні тій – ніхто не зна,
-		І ми про це тут не напишем.
-		Ми тільки знаєм, що вона
-		Не до вподоби мишам!"
+Ось слухай! 
+Давно відомий він тобі:
+Коли на сонечку дрімає,
+Він колискову сам собі
+Під ніс тихесенько співає.
+Що в пісні тій – ніхто не зна,
+І ми про це тут не напишем.
+Ми тільки знаєм, що вона
+Не до вподоби мишам!"
 		):
 			$Control/answer.visible=true
 			$Control/notanswer.visible=true
 			$Control/notanswer2.visible=true
-		pass
+	pass
 
 func _on_area_2d_body_entered(body):
-	if body.name == "MainCharacter":
-		label.visible=true
-		label.visible_ratio=0
-		label.text="Привіт! Нумо перевіримо твою кмітливість, синку!. Розгадай но загадку мою!"
+	if !proc:
+		if body.name == "MainCharacter":
+			proc=true
+			label.visible=true
+			label.visible_ratio=0
+			label.text="Привіт! Нумо перевіримо твою кмітливість, синку!. Розгадай но загадку мою!"
 
 func _on_help_pressed():
 	work()
@@ -66,15 +69,15 @@ func _on_nothelp_pressed():
 func work():
 	label.visible_ratio=0
 	label.text="
-		Ось слухай! 
-		Давно відомий він тобі:
-		Коли на сонечку дрімає,
-		Він колискову сам собі
-		Під ніс тихесенько співає.
-		Що в пісні тій – ніхто не зна,
-		І ми про це тут не напишем.
-		Ми тільки знаєм, що вона
-		Не до вподоби мишам!"
+Ось слухай! 
+Давно відомий він тобі:
+Коли на сонечку дрімає,
+Він колискову сам собі
+Під ніс тихесенько співає.
+Що в пісні тій – ніхто не зна,
+І ми про це тут не напишем.
+Ми тільки знаєм, що вона
+Не до вподоби мишам!"
 
 func _on_answer_pressed():
 	Global.karma+=1

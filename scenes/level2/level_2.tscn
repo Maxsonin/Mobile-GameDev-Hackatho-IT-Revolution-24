@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp7x30e1k7urr" path="res://scenes/level2/npc.tscn" id="3_p0pyx"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="4_lwv3j"]
 [ext_resource type="Texture2D" uid="uid://1asfxuvl67nx" path="res://img/pig.png" id="7_vcibd"]
-[ext_resource type="LabelSettings" uid="uid://s2pb4p1i1awi" path="res://Assets/fonts/new_label_settings.tres" id="8_ljs3g"]
+[ext_resource type="LabelSettings" uid="uid://badnjvfft7av1" path="res://scenes/level2/level_2.tres" id="9_ywr7q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0smx"]
 atlas = ExtResource("7_vcibd")
@@ -283,10 +283,10 @@ offset_left = 101.0
 offset_top = 62.0
 offset_right = 193.0
 offset_bottom = 71.0
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/font_size = 4
 text = "Котигорошку! Допоможи бабці
 спіймати свиню!"
-label_settings = ExtResource("8_ljs3g")
+label_settings = ExtResource("9_ywr7q")
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -297,9 +297,10 @@ offset_left = 137.0
 offset_top = 54.0
 offset_right = 234.0
 offset_bottom = 78.0
+theme_override_font_sizes/font_size = 4
 text = "Дякую Котигорошку!
 Я тобі дуже вдячна!"
-label_settings = ExtResource("8_ljs3g")
+label_settings = ExtResource("9_ywr7q")
 visible_characters = 0
 visible_ratio = 0.0
 

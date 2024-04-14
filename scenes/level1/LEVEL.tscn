@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0ieuc3rlnfad"]
+[gd_scene load_steps=18 format=3 uid="uid://b0ieuc3rlnfad"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_2ei06"]
 [ext_resource type="Script" path="res://scenes/level1/LEVEL.gd" id="1_63ka3"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dnhd2jk1hyli7" path="res://Assets/buttons/YESNO/buttonNo.png" id="7_ec3dq"]
 [ext_resource type="Texture2D" uid="uid://bpmr6vofpok85" path="res://Assets/buttons/choices/buttonCat.png" id="8_ew3jw"]
 [ext_resource type="Texture2D" uid="uid://c2ckvrber4oh3" path="res://Assets/buttons/choices/buttonBear.png" id="9_tjpct"]
-[ext_resource type="LabelSettings" uid="uid://s2pb4p1i1awi" path="res://Assets/fonts/new_label_settings.tres" id="10_igd56"]
 [ext_resource type="Texture2D" uid="uid://bw7dcslgxcxkg" path="res://Assets/buttons/choices/buttonDog.png" id="10_qsx87"]
+[ext_resource type="FontFile" uid="uid://bpl5e7xyyvirp" path="res://Assets/fonts/VCR_OSD_MONO_1.001.ttf" id="11_tni6t"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="12_r5udp"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="13_d7xu8"]
 
@@ -31,6 +31,12 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ttg"]
 size = Vector2(163.84, 133.12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xpt1c"]
+line_spacing = 1.0
+font = ExtResource("11_tni6t")
+font_size = 3
+shadow_size = 0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_63ka3")
@@ -113,7 +119,7 @@ offset_left = 55.0
 offset_top = 2.0
 offset_right = 102.0
 offset_bottom = 53.0
-label_settings = ExtResource("10_igd56")
+label_settings = SubResource("LabelSettings_xpt1c")
 autowrap_mode = 2
 
 [node name="Borders" type="Node" parent="."]

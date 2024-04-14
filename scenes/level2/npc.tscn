@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dp7x30e1k7urr"]
 
 [ext_resource type="Texture2D" uid="uid://cb5ldvtoqtfuw" path="res://img/vx_chara03_c.png" id="1_np07a"]
-[ext_resource type="LabelSettings" uid="uid://s2pb4p1i1awi" path="res://Assets/fonts/new_label_settings.tres" id="2_d18s1"]
+[ext_resource type="LabelSettings" uid="uid://badnjvfft7av1" path="res://scenes/level2/level_2.tres" id="2_2wi1t"]
 
 [sub_resource type="GDScript" id="GDScript_mbqkn"]
 script/source = "extends Node2D
@@ -107,8 +107,9 @@ offset_left = -34.0
 offset_top = -22.0
 offset_right = 6.0
 offset_bottom = -14.0
+theme_override_font_sizes/font_size = 5
 text = "texs"
-label_settings = ExtResource("2_d18s1")
+label_settings = ExtResource("2_2wi1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
