@@ -72,6 +72,7 @@ autostart = true
 [node name="RealBoss" parent="." instance=ExtResource("9_vaa2x")]
 position = Vector2(275, 22)
 
+[connection signal="transitioned" from="SceneTrasition" to="." method="_on_scene_trasition_transitioned"]
 [connection signal="pressed" from="SceneTrasition/FightBulava" to="Generator" method="_on_fight_bulava_pressed"]
 [connection signal="player_got_hit" from="Generator" to="." method="_on_generator_player_got_hit"]
 [connection signal="player_got_hit" from="Generator" to="MainCharacter" method="_on_generator_player_got_hit"]

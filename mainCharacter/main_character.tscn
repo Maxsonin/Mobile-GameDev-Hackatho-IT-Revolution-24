@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://085xg8eitu0h"]
+[gd_scene load_steps=38 format=3 uid="uid://085xg8eitu0h"]
 
 [ext_resource type="Script" path="res://mainCharacter/main_character.gd" id="1_fi6lc"]
 [ext_resource type="Texture2D" uid="uid://cds7s0ohyya55" path="res://mainCharacter/mainCharacterAssets/player.png" id="2_t6gcb"]
@@ -126,6 +126,18 @@ region = Rect2(192, 240, 48, 48)
 atlas = ExtResource("2_t6gcb")
 region = Rect2(240, 240, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7a50"]
+atlas = ExtResource("2_t6gcb")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jbw5"]
+atlas = ExtResource("2_t6gcb")
+region = Rect2(48, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm0bl"]
+atlas = ExtResource("2_t6gcb")
+region = Rect2(96, 432, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vthp0"]
 animations = [{
 "frames": [{
@@ -242,6 +254,20 @@ animations = [{
 "loop": true,
 "name": &"Up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7a50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jbw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm0bl")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
 }]
 
 [node name="MainCharacter" type="CharacterBody2D"]
@@ -255,7 +281,7 @@ shape = SubResource("RectangleShape2D_ni7m4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_vthp0")
-animation = &"Idle"
+animation = &"death"
 autoplay = "Idle"
 offset = Vector2(0, -13)
 
