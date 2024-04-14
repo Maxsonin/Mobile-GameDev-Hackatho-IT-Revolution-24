@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bb6roldujw7pu"]
+[gd_scene load_steps=67 format=3 uid="uid://bb6roldujw7pu"]
 
 [ext_resource type="Script" path="res://scenes/bossfight/bossfight.gd" id="1_0me77"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://d3dcn55wq6uaf" path="res://img/vorms/Worm/Walk.png" id="8_3j62r"]
 [ext_resource type="Script" path="res://scenes/bossfight/AnimatedSprite2D.gd" id="9_e07uw"]
 [ext_resource type="Texture2D" uid="uid://c27rus5vpjri" path="res://img/vorms/Fire Ball/Move.png" id="11_lumcb"]
+[ext_resource type="Script" path="res://scenes/bossfight/CharacterBody2D3.gd" id="12_6esqp"]
+[ext_resource type="Texture2D" uid="uid://cv3fmlycrgbht" path="res://img/staff4.png" id="13_es00j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3umtc"]
 atlas = ExtResource("4_n2q8g")
@@ -244,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m07y8")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -382,6 +384,21 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4sc0v"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_21c7v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_es00j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wcuag"]
+a = Vector2(216.676, -134.897)
+b = Vector2(203.119, -118.012)
+
 [node name="Bossfight" type="Node2D"]
 script = ExtResource("1_0me77")
 
@@ -403,7 +420,7 @@ script = ExtResource("3_1jmcs")
 position = Vector2(278, 19)
 scale = Vector2(0.588889, 0.588889)
 sprite_frames = SubResource("SpriteFrames_ng4uj")
-animation = &"attake"
+animation = &"death"
 flip_h = true
 script = ExtResource("9_e07uw")
 
@@ -427,5 +444,24 @@ flip_h = true
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_4sc0v")
 
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
+position = Vector2(98, 23)
+script = ExtResource("12_6esqp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D3"]
+position = Vector2(5, -1)
+rotation = 0.783653
+scale = Vector2(0.418173, 0.418173)
+sprite_frames = SubResource("SpriteFrames_21c7v")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D3/AnimatedSprite2D"]
+position = Vector2(-209.901, 128.145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/AnimatedSprite2D/Area2D"]
+shape = SubResource("SegmentShape2D_wcuag")
+one_way_collision_margin = 8.6
+
 [connection signal="animation_looped" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="CharacterBody2D2/AnimatedSprite2D/Area2D" to="MainCharacter" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D3/AnimatedSprite2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var speed=60
 var damage=false
+var dead=false
 @onready var fire=$"../CharacterBody2D2"
 @onready var anim=$AnimatedSprite2D
 @onready var fireanime=$"../CharacterBody2D2/AnimatedSprite2D"
@@ -14,22 +15,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y+=speed*delta
-	if position.y>=110:
-		position.y=109
-		attack()
-		speed=-speed
+	if !dead:
+		position.y+=speed*delta
+		if position.y>=110:
+			position.y=109
+			attack()
+			speed=-speed
 	if position.y<=0:
-		position.y=1
-		speed=-speed
-		attack()
+			position.y=1
+			speed=-speed
+			attack()
 	if(damage):
-		fire.visible=true
-		fire.position.x-=150*delta
-		fireanime.play("default")
+			fire.visible=true
+			fire.position.x-=150*delta
+			fireanime.play("default")
 	else:
-		fire.visible=false
-		fire.position=position
+			fire.visible=false
+			fire.position=position
 	pass
 
 
@@ -44,4 +46,12 @@ func _on_animated_sprite_2d_animation_looped():
 		anim.play("walk")
 		speed=-60*int(position.y>2)+60*int(position.y<2)
 		damage=true
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body):
+	if(body.name=="CharacterBody2D"):
+		anim.play("death")
+		await get_tree().create_timer(1.0).timeout
+		dead=true
 	pass # Replace with function body.
