@@ -35,3 +35,14 @@ func player_movement(delta: float) -> void:
 		animated_sprite_2d.play("Idle")
 		
 	move_and_slide()
+
+
+
+func _on_area_2d_body_entered(body):
+	if (body.name=="MainCharacter"):
+		gameover()
+		print("rip")
+	pass # Replace with function body.
+func gameover():
+	animated_sprite_2d.play("rip")
+	

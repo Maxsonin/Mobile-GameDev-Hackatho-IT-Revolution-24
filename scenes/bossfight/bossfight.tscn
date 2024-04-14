@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bb6roldujw7pu"]
+[gd_scene load_steps=63 format=3 uid="uid://bb6roldujw7pu"]
 
 [ext_resource type="Script" path="res://scenes/bossfight/bossfight.gd" id="1_0me77"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cofu6appfhdja" path="res://img/vorms/Worm/Get Hit.png" id="7_6rea8"]
 [ext_resource type="Texture2D" uid="uid://d3dcn55wq6uaf" path="res://img/vorms/Worm/Walk.png" id="8_3j62r"]
 [ext_resource type="Script" path="res://scenes/bossfight/AnimatedSprite2D.gd" id="9_e07uw"]
+[ext_resource type="Texture2D" uid="uid://c27rus5vpjri" path="res://img/vorms/Fire Ball/Move.png" id="11_lumcb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3umtc"]
 atlas = ExtResource("4_n2q8g")
@@ -58,22 +59,6 @@ region = Rect2(900, 0, 90, 90)
 [sub_resource type="AtlasTexture" id="AtlasTexture_frnsj"]
 atlas = ExtResource("4_n2q8g")
 region = Rect2(990, 0, 90, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_msdb1"]
-atlas = ExtResource("4_n2q8g")
-region = Rect2(1080, 0, 90, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aya7r"]
-atlas = ExtResource("4_n2q8g")
-region = Rect2(1170, 0, 90, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u76uc"]
-atlas = ExtResource("4_n2q8g")
-region = Rect2(1260, 0, 90, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0dry"]
-atlas = ExtResource("4_n2q8g")
-region = Rect2(1350, 0, 90, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd01p"]
 atlas = ExtResource("5_l2ppr")
@@ -229,18 +214,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_frnsj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_msdb1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aya7r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u76uc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0dry")
 }],
 "loop": true,
 "name": &"attake",
@@ -357,6 +330,58 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5nwt"]
 size = Vector2(28, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g0yl"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7cew"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyq3"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xnx6"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2kya"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33n7a"]
+atlas = ExtResource("11_lumcb")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mou11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g0yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7cew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhyq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xnx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2kya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33n7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4sc0v"]
+
 [node name="Bossfight" type="Node2D"]
 script = ExtResource("1_0me77")
 
@@ -386,4 +411,21 @@ script = ExtResource("9_e07uw")
 position = Vector2(279, 18)
 shape = SubResource("RectangleShape2D_j5nwt")
 
-[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D2"]
+position = Vector2(257, 16)
+scale = Vector2(1, 0.913043)
+sprite_frames = SubResource("SpriteFrames_mou11")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D2/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/AnimatedSprite2D/Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_4sc0v")
+
+[connection signal="animation_looped" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="body_entered" from="CharacterBody2D2/AnimatedSprite2D/Area2D" to="MainCharacter" method="_on_area_2d_body_entered"]
