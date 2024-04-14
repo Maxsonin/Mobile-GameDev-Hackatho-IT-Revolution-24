@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh8sjgmqf4ylt"]
+
+[ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_11xib"]
+[ext_resource type="Texture2D" uid="uid://dkemmolna52ud" path="res://scenes/intro/slides/1.png" id="1_26no1"]
+[ext_resource type="Texture2D" uid="uid://qk4anvs6p4s1" path="res://scenes/intro/slides/2.png" id="2_1lgm0"]
+[ext_resource type="Texture2D" uid="uid://ced3e5n1oao1i" path="res://scenes/intro/slides/3.png" id="3_hibdy"]
+[ext_resource type="Texture2D" uid="uid://mywh6jt0c6vw" path="res://scenes/intro/slides/4.png" id="4_4jsxc"]
+[ext_resource type="Texture2D" uid="uid://84qq6vpdj8ap" path="res://scenes/intro/slides/5.png" id="5_kc0i1"]
+[ext_resource type="Texture2D" uid="uid://q3a5pfgvmfuj" path="res://scenes/intro/slides/6.png" id="6_xteot"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_11xib")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(148, 66.5)
+scale = Vector2(0.206848, 0.171393)
+texture = ExtResource("1_26no1")
+
+[node name="2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(148, 68)
+scale = Vector2(0.207865, 0.167488)
+texture = ExtResource("2_1lgm0")
+
+[node name="3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(148, 68)
+scale = Vector2(0.220074, 0.166463)
+texture = ExtResource("3_hibdy")
+
+[node name="4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(148, 68)
+scale = Vector2(0.206993, 0.165854)
+texture = ExtResource("4_4jsxc")
+
+[node name="5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(148, 68)
+scale = Vector2(0.206848, 0.167694)
+texture = ExtResource("5_kc0i1")
+
+[node name="6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(148, 68)
+scale = Vector2(0.206848, 0.165854)
+texture = ExtResource("6_xteot")
