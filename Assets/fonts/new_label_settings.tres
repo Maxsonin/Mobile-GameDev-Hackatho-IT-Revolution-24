@@ -3,5 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bpl5e7xyyvirp" path="res://Assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_t2wx0"]
 
 [resource]
+line_spacing = 1.0
 font = ExtResource("1_t2wx0")
-font_size = 8
+font_size = 3
