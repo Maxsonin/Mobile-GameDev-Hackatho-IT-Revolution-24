@@ -7,11 +7,21 @@ script/source = "extends Node2D
 
 @onready var ui = $\"../MainCharacter/UI\"
 @onready var resourse_manager = $\"../ResourseManager\"
-@onready var bottom_invisible_wall = %BottomInvisibleWall
+@onready var bottom_invisible_wall = $\"../BottomInvisibleWall\"
 
 var phrases = [\"Збери 10 металу, 20 дерева та 15 каміння\", \"Чудово! Ось твоя зброя!\"]
 
 var activated: bool = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == \"MainCharacter\":
@@ -20,12 +30,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			ui.visible = false
 			$Label.text = phrases[1]
 			$AnimationPlayer.play(\"new_animation\")
-			bottom_invisible_wall.queue_free()
 		else:
 			ui.visible = true
 			$Label.text = phrases[0]
 			$AnimationPlayer.play(\"new_animation\")
-
+			var new_position = bottom_invisible_wall.global_position + Vector2(50, 0)
+			print(\"New Position:\", new_position)
+			bottom_invisible_wall.global_position = new_position
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lu7p5"]
@@ -133,7 +144,7 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_hqr7g")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.160017
+frame_progress = 0.0261416
 
 [node name="Area2D" type="Area2D" parent="."]
 
