@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb6roldujw7pu"]
+[gd_scene load_steps=12 format=3 uid="uid://bb6roldujw7pu"]
 
 [ext_resource type="Script" path="res://scenes/bossfight/bossfight.gd" id="1_0me77"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://btubxdy7ccdqm" path="res://scenes/weapon.tscn" id="7_iim5q"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="9_ms6m2"]
 [ext_resource type="PackedScene" uid="uid://cvlcnxhqwghfe" path="res://scenes/bossfight/real_boss.tscn" id="9_vaa2x"]
+[ext_resource type="PackedScene" uid="uid://x83jnlhefpgp" path="res://controlsUI/dirControl/dir_control.tscn" id="11_ommm4"]
 [ext_resource type="PackedScene" uid="uid://6nuasygrlu5y" path="res://scenes/bossfight/fire_ball.tscn" id="15_btaq3"]
 [ext_resource type="Script" path="res://scenes/bossfight/Generator.gd" id="15_kel6k"]
 
@@ -14,6 +15,19 @@
 
 [node name="Bossfight" type="Node2D"]
 script = ExtResource("1_0me77")
+
+[node name="SceneTrasition" parent="." instance=ExtResource("9_ms6m2")]
+
+[node name="FightBulava" type="TouchScreenButton" parent="SceneTrasition"]
+position = Vector2(237, 117)
+scale = Vector2(49, 16)
+texture_normal = SubResource("CanvasTexture_jd021")
+
+[node name="DirControl" parent="SceneTrasition" instance=ExtResource("11_ommm4")]
+offset_left = 13.0
+offset_top = 73.0
+offset_right = 13.0
+offset_bottom = 73.0
 
 [node name="InvisibleWall" parent="." instance=ExtResource("2_ljk7l")]
 position = Vector2(148, -1)
@@ -29,7 +43,7 @@ rotation = 1.57079
 scale = Vector2(20, 1)
 
 [node name="InvisibleWall4" parent="." instance=ExtResource("2_ljk7l")]
-position = Vector2(-5, 63)
+position = Vector2(-6, 65)
 rotation = 1.57079
 scale = Vector2(20, 1)
 
@@ -58,25 +72,9 @@ autostart = true
 [node name="RealBoss" parent="." instance=ExtResource("9_vaa2x")]
 position = Vector2(275, 22)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 307.0
-offset_bottom = 146.0
-
-[node name="FightBulava" type="TouchScreenButton" parent="Control"]
-position = Vector2(235, 115)
-scale = Vector2(49, 16)
-texture_normal = SubResource("CanvasTexture_jd021")
-
-[node name="SceneTrasition" parent="." instance=ExtResource("9_ms6m2")]
-
+[connection signal="pressed" from="SceneTrasition/FightBulava" to="Generator" method="_on_fight_bulava_pressed"]
 [connection signal="player_got_hit" from="Generator" to="." method="_on_generator_player_got_hit"]
 [connection signal="player_got_hit" from="Generator" to="MainCharacter" method="_on_generator_player_got_hit"]
 [connection signal="timeout" from="Timer" to="Generator" method="_on_timer_timeout"]
 [connection signal="dragon_killed" from="RealBoss" to="." method="_on_real_boss_dragon_killed"]
 [connection signal="dragon_killed" from="RealBoss" to="Generator" method="_on_real_boss_dragon_killed"]
-[connection signal="pressed" from="Control/FightBulava" to="Generator" method="_on_fight_bulava_pressed"]
-[connection signal="transitioned" from="SceneTrasition" to="." method="_on_scene_trasition_transitioned"]

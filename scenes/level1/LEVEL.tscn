@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0ieuc3rlnfad"]
+[gd_scene load_steps=19 format=3 uid="uid://b0ieuc3rlnfad"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_2ei06"]
 [ext_resource type="Script" path="res://scenes/level1/LEVEL.gd" id="1_63ka3"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bpl5e7xyyvirp" path="res://Assets/fonts/VCR_OSD_MONO_1.001.ttf" id="11_tni6t"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="12_r5udp"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="13_d7xu8"]
+[ext_resource type="PackedScene" uid="uid://x83jnlhefpgp" path="res://controlsUI/dirControl/dir_control.tscn" id="14_xp8on"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynv1n"]
 atlas = ExtResource("2_wkhse")
@@ -150,6 +151,12 @@ rotation = 1.5708
 scale = Vector2(50, 1)
 
 [node name="SceneTrasition" parent="." instance=ExtResource("13_d7xu8")]
+
+[node name="DirControl" parent="SceneTrasition" instance=ExtResource("14_xp8on")]
+offset_left = -3.0
+offset_top = 72.0
+offset_right = -231.0
+offset_bottom = 1.0
 
 [node name="InvisibleWall3" parent="." instance=ExtResource("12_r5udp")]
 position = Vector2(176.92, 36)

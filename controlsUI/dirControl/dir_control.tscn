@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://x83jnlhefpgp"]
+[gd_scene load_steps=5 format=3 uid="uid://x83jnlhefpgp"]
 
 [ext_resource type="Script" path="res://controlsUI/dirControl/dir_control.gd" id="1_87riw"]
-[ext_resource type="Texture2D" uid="uid://dgncm7km6k5id" path="res://icon.svg" id="2_q74pi"]
+[ext_resource type="Texture2D" uid="uid://b6d7dc6datyrt" path="res://Assets/buttons/controls/left.png" id="3_711np"]
+[ext_resource type="Texture2D" uid="uid://bbddbsk7s5i2o" path="res://Assets/buttons/controls/right.png" id="4_x5l06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iece8"]
+size = Vector2(90, 90)
 
 [node name="DirControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -228.0
+offset_left = 1.0
+offset_right = -227.0
 offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -18,24 +21,39 @@ script = ExtResource("1_87riw")
 
 [node name="TopButton" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(24, 0)
-scale = Vector2(0.125, 0.125)
-texture_normal = ExtResource("2_q74pi")
+position = Vector2(23, 22)
+rotation = -1.5708
+scale = Vector2(0.238642, 0.25653)
+texture_normal = ExtResource("4_x5l06")
 shape = SubResource("RectangleShape2D_iece8")
 
 [node name="DownButton" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
-position = Vector2(32, 56)
+position = Vector2(23, 58)
+rotation = -1.5708
+scale = Vector2(0.24167, 0.248352)
+texture_normal = ExtResource("3_711np")
 shape = SubResource("RectangleShape2D_iece8")
 
 [node name="LeftButton" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
-position = Vector2(8, 32)
+position = Vector2(1, 20)
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_711np")
 shape = SubResource("RectangleShape2D_iece8")
 
 [node name="RightButton" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
-position = Vector2(56, 32)
+position = Vector2(46, 19)
+scale = Vector2(0.238095, 0.238095)
+texture_normal = ExtResource("4_x5l06")
 shape = SubResource("RectangleShape2D_iece8")
+
+[connection signal="pressed" from="TopButton" to="." method="_on_top_button_pressed"]
+[connection signal="released" from="TopButton" to="." method="_on_top_button_released"]
+[connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="released" from="DownButton" to="." method="_on_down_button_released"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="released" from="LeftButton" to="." method="_on_left_button_released"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="released" from="RightButton" to="." method="_on_right_button_released"]
