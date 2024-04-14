@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="2_ljk7l"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="3_bkhk3"]
+[ext_resource type="Texture2D" uid="uid://cv3fmlycrgbht" path="res://img/staff4.png" id="3_kge7a"]
 [ext_resource type="PackedScene" uid="uid://btubxdy7ccdqm" path="res://scenes/weapon.tscn" id="7_iim5q"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="9_ms6m2"]
 [ext_resource type="PackedScene" uid="uid://cvlcnxhqwghfe" path="res://scenes/bossfight/real_boss.tscn" id="9_vaa2x"]
@@ -11,17 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://6nuasygrlu5y" path="res://scenes/bossfight/fire_ball.tscn" id="15_btaq3"]
 [ext_resource type="Script" path="res://scenes/bossfight/Generator.gd" id="15_kel6k"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_jd021"]
-
 [node name="Bossfight" type="Node2D"]
 script = ExtResource("1_0me77")
 
 [node name="SceneTrasition" parent="." instance=ExtResource("9_ms6m2")]
 
 [node name="FightBulava" type="TouchScreenButton" parent="SceneTrasition"]
-position = Vector2(237, 117)
-scale = Vector2(49, 16)
-texture_normal = SubResource("CanvasTexture_jd021")
+position = Vector2(238, 95)
+scale = Vector2(1.75, 1.54245)
+texture_normal = ExtResource("3_kge7a")
 
 [node name="DirControl" parent="SceneTrasition" instance=ExtResource("11_ommm4")]
 offset_left = 13.0
