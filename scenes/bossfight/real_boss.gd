@@ -2,6 +2,7 @@ extends Node2D
 
 var speed = 60
 var dead = false
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 signal dragon_killed
 
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.name == "Bulava"):
+		animated_sprite_2d.play("death")
 		dead = true
 		dragon_killed.emit()
 		

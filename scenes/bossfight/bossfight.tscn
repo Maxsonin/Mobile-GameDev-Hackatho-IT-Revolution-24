@@ -60,13 +60,13 @@ position = Vector2(275, 22)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 197.0
-offset_top = 113.0
-offset_right = 269.0
-offset_bottom = 130.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 307.0
+offset_bottom = 146.0
 
 [node name="FightBulava" type="TouchScreenButton" parent="Control"]
-position = Vector2(15, 3)
+position = Vector2(235, 115)
 scale = Vector2(49, 16)
 texture_normal = SubResource("CanvasTexture_jd021")
 

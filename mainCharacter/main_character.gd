@@ -41,19 +41,7 @@ func player_movement(delta: float) -> void:
 		move_and_slide()
 
 
-
-#func _on_area_2d_body_entered(body):
-	#if !dead:
-		#if (body.name=="MainCharacter"):
-			#dead = true
-			#gameover()
-			#print("rip")
-
-
-func gameover():
-	animated_sprite_2d.play("rip")
-	await get_tree().create_timer(1.0).timeout
-
-
 func _on_generator_player_got_hit() -> void:
-	print("ooou")
+	dead = true
+	animated_sprite_2d.play("death")
+	await get_tree().create_timer(1.0).timeout
