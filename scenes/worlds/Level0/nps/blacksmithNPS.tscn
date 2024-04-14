@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7xhhby0desrl"]
+[gd_scene load_steps=16 format=3 uid="uid://c7xhhby0desrl"]
 
 [ext_resource type="Texture2D" uid="uid://dgj4d8da2gdum" path="res://scenes/worlds/Level0/level0Assets/Blacksmith/BLACKSMITH.png" id="1_83o3o"]
+[ext_resource type="Texture2D" uid="uid://dtyytnd6fnrtm" path="res://Assets/shadows/shadow.png" id="1_teuk5"]
 
 [sub_resource type="GDScript" id="GDScript_mbqkn"]
 script/source = "extends Node2D
@@ -8,16 +9,25 @@ script/source = "extends Node2D
 @onready var ui = $\"../MainCharacter/UI\"
 @onready var resourse_manager = $\"../ResourseManager\"
 @onready var bottom_invisible_wall = %BottomInvisibleWall
+@onready var random_spawner = $\"../RandomSpawner\"
+@onready var sign = $\"../Sign\"
 
-var phrases = [\"Збери 10 металу, 20 дерева та 15 каміння\", \"Чудово! Ось твоя зброя!\"]
+var phrases = [\"Для булави збери:
+	1. 10 металу;
+	2. 20 дерева;
+	3. 15 каміння.\", \"Чудово! Ось твоя зброя!\"]
 
 var activated: bool = false
+var done: bool = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == \"MainCharacter\":
 		activated = true
+		random_spawner.process_mode = Node.PROCESS_MODE_INHERIT
 		if ((resourse_manager.metal >= 10) and (resourse_manager.wood >= 20) and (resourse_manager.stone >= 15)):
 			ui.visible = false
+			done = true
+			sign.visible = true
 			$Label.text = phrases[1]
 			$AnimationPlayer.play(\"new_animation\")
 			if bottom_invisible_wall != null:
@@ -127,6 +137,11 @@ _data = {
 
 [node name="Npc" type="CharacterBody2D"]
 script = SubResource("GDScript_mbqkn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 8.75)
+scale = Vector2(0.8, 0.395)
+texture = ExtResource("1_teuk5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
