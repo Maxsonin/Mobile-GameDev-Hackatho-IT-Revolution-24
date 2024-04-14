@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb6roldujw7pu"]
+[gd_scene load_steps=13 format=3 uid="uid://bb6roldujw7pu"]
 
 [ext_resource type="Script" path="res://scenes/bossfight/bossfight.gd" id="1_0me77"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="9_ms6m2"]
 [ext_resource type="PackedScene" uid="uid://cvlcnxhqwghfe" path="res://scenes/bossfight/real_boss.tscn" id="9_vaa2x"]
 [ext_resource type="PackedScene" uid="uid://x83jnlhefpgp" path="res://controlsUI/dirControl/dir_control.tscn" id="11_ommm4"]
+[ext_resource type="AudioStream" uid="uid://dc07vgxebtkpi" path="res://sound/boss.mp3" id="12_1e2cj"]
 [ext_resource type="PackedScene" uid="uid://6nuasygrlu5y" path="res://scenes/bossfight/fire_ball.tscn" id="15_btaq3"]
 [ext_resource type="Script" path="res://scenes/bossfight/Generator.gd" id="15_kel6k"]
 
@@ -70,6 +71,10 @@ autostart = true
 
 [node name="RealBoss" parent="." instance=ExtResource("9_vaa2x")]
 position = Vector2(275, 22)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_1e2cj")
+autoplay = true
 
 [connection signal="transitioned" from="SceneTrasition" to="." method="_on_scene_trasition_transitioned"]
 [connection signal="pressed" from="SceneTrasition/FightBulava" to="Generator" method="_on_fight_bulava_pressed"]
