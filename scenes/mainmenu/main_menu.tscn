@@ -27,7 +27,7 @@ offset_bottom = 132.0
 script = ExtResource("7_wghmq")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
-position = Vector2(90, 7)
+position = Vector2(98, 52)
 scale = Vector2(0.239796, 0.208333)
 texture_normal = ExtResource("7_0pagw")
 shape = SubResource("RectangleShape2D_vc0g1")
