@@ -71,7 +71,7 @@ layer_1/tile_data = PackedInt32Array(917512, 3, 5, 1179651, 3, 5, 1245194, 3, 5,
 
 [node name="MainCharacter" parent="." instance=ExtResource("5_b2qqm")]
 unique_name_in_owner = true
-position = Vector2(553, 104)
+position = Vector2(560, 96)
 scale = Vector2(2, 2)
 right_limit = 590
 bottom_limit = 350
