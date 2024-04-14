@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://st1v0fmsx3mc"]
+[gd_scene load_steps=22 format=3 uid="uid://st1v0fmsx3mc"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_e00lh"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="1_gos30"]
 [ext_resource type="Script" path="res://scenes/level2/level_2.gd" id="1_obkcj"]
 [ext_resource type="PackedScene" uid="uid://m78i1ve0lx6k" path="res://scenes/level2/pig.tscn" id="2_8bon0"]
+[ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="2_pxiyr"]
 [ext_resource type="PackedScene" uid="uid://dp7x30e1k7urr" path="res://scenes/level2/npc.tscn" id="3_p0pyx"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="4_lwv3j"]
 [ext_resource type="Texture2D" uid="uid://1asfxuvl67nx" path="res://img/pig.png" id="7_vcibd"]
@@ -221,6 +222,8 @@ size = Vector2(13, 14.5)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_obkcj")
 
+[node name="SceneTrasition" parent="." instance=ExtResource("2_pxiyr")]
+
 [node name="TopWall" parent="." instance=ExtResource("1_gos30")]
 position = Vector2(200, -15)
 scale = Vector2(30, 1)
@@ -230,7 +233,7 @@ position = Vector2(222, 319)
 scale = Vector2(30, 1)
 
 [node name="RightWall" parent="." instance=ExtResource("1_gos30")]
-position = Vector2(435, 127)
+position = Vector2(458, 128)
 rotation = 1.57079
 scale = Vector2(20, 1)
 
