@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var b1=$Control/help
 @onready var b2=$Control/nothelp
 var finish=false
-var speedtext=10.15
+var speedtext=0.15
 func _ready():
 	b1.visible=false
 	b2.visible=false
