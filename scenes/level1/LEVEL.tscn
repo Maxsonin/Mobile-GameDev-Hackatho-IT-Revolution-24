@@ -38,6 +38,8 @@ layer_0/tile_data = PackedInt32Array(0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0
 
 [node name="MainCharacter" parent="." instance=ExtResource("4_gcj3s")]
 position = Vector2(22, 30)
+right_limit = 500
+bottom_limit = 500
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("4_7tasp")

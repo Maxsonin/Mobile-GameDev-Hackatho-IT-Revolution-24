@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var camera_2d = $Camera2D
-@onready var tile_map = $"../TileMap"
 
 @export var right_limit: int
 @export var bottom_limit: int
@@ -36,7 +35,3 @@ func player_movement(delta: float) -> void:
 		animated_sprite_2d.play("Idle")
 		
 	move_and_slide()
-
-
-func _on_blacksmith_area_entered(area):
-	pass # Replace with function body.
