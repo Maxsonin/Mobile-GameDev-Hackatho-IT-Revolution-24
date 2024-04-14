@@ -29,7 +29,7 @@ func _on_generator_player_got_hit() -> void:
 
 func _on_scene_trasition_transitioned() -> void:
 	if victory and !player_killed:
-		get_tree().change_scene_to_file("res://scenes/mainmenu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/victoryscreen/victory_screen.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/deathscreen/death_screen.tscn")
 
