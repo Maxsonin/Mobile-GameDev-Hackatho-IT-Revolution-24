@@ -6,6 +6,11 @@ extends Node
 @export var wood_scene: PackedScene
 @export var metal_scene: PackedScene
 
+@export var left_border: int
+@export var right_border: int
+@export var top_border: int
+@export var bottom_border: int
+
 const MAX_STONE: int = 10
 const MAX_WOOD: int = 15
 const MAX_METAL: int = 5
@@ -29,7 +34,7 @@ func _on_spawn_timer_timeout():
 	if type == stone_scene:
 		if num_stones < MAX_STONE:
 			var stone = type.instantiate()
-			stone.position = Vector2(randi_range(10, 50), randi_range(10, 50))
+			stone.position = Vector2(randi_range(right_border, left_border), randi_range(top_border, bottom_border))
 			parent.add_child(stone)
 			stone.add_to_group("stone")
 		elif num_stones > MAX_STONE:
@@ -41,7 +46,7 @@ func _on_spawn_timer_timeout():
 	elif type == wood_scene:
 		if num_woods < MAX_WOOD:
 			var wood = type.instantiate()
-			wood.position = Vector2(randi_range(10, 50), randi_range(10, 50))
+			wood.position = Vector2(randi_range(right_border, left_border), randi_range(top_border, bottom_border))
 			parent.add_child(wood)
 			wood.add_to_group("wood")
 		elif num_woods > MAX_WOOD:
@@ -53,7 +58,7 @@ func _on_spawn_timer_timeout():
 	elif type == metal_scene:
 		if num_metals < MAX_METAL:
 			var metal = type.instantiate()
-			metal.position = Vector2(randi_range(10, 50), randi_range(10, 50))
+			metal.position = Vector2(randi_range(right_border, left_border), randi_range(top_border, bottom_border))
 			parent.add_child(metal)
 			metal.add_to_group("metal")
 		elif num_metals > MAX_METAL:
