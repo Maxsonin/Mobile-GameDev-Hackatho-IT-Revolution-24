@@ -104,7 +104,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"right",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -125,16 +125,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtqk4"]
-size = Vector2(78, 61)
+size = Vector2(34, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uedsu"]
-radius = 15.0333
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brw8s"]
-radius = 17.0
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd6q1"]
-size = Vector2(7, 6)
+size = Vector2(7, 2.5)
 
 [node name="Pig" type="CharacterBody2D"]
 collision_layer = 2
@@ -154,7 +154,6 @@ frame_progress = 1.0
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_wtqk4")
 
 [node name="WallsColide" type="Area2D" parent="."]
@@ -169,7 +168,7 @@ shape = SubResource("CircleShape2D_brw8s")
 [node name="StoiloArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoiloArea"]
-position = Vector2(0, 1)
+position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_qd6q1")
 debug_color = Color(0.913725, 0.203922, 0.52549, 0.419608)
 

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp7x30e1k7urr"]
+[gd_scene load_steps=10 format=3 uid="uid://dp7x30e1k7urr"]
 
 [ext_resource type="Texture2D" uid="uid://cb5ldvtoqtfuw" path="res://img/vx_chara03_c.png" id="1_np07a"]
+[ext_resource type="LabelSettings" uid="uid://s2pb4p1i1awi" path="res://Assets/fonts/new_label_settings.tres" id="2_d18s1"]
 
 [sub_resource type="GDScript" id="GDScript_mbqkn"]
 script/source = "extends Node2D
 
 var phrases = [\"Лови цю свиню!\", \"Давай, давай!\", \"Ойойой, майже спіймав!\", \"Нужбо, швидше!\"]
+var should_say = false 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +20,18 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	$Label.text = phrases.pick_random()
-	$AnimationPlayer.play(\"new_animation\")
+	if should_say:
+		$Label.text = phrases.pick_random()
+		$AnimationPlayer.play(\"new_animation\")
+
+
+func _on_pig_in_stoilo() -> void:
+	should_say = false
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"start\":
+		should_say = true
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hiq4d"]
@@ -38,6 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe5k6"]
+size = Vector2(42.7812, 40)
 
 [sub_resource type="Animation" id="Animation_yne0t"]
 length = 0.001
@@ -80,7 +93,7 @@ _data = {
 script = SubResource("GDScript_mbqkn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_86ne0")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -90,12 +103,12 @@ shape = SubResource("RectangleShape2D_qe5k6")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = 2.0
-offset_top = -17.0
-offset_right = 42.0
-offset_bottom = -9.0
-theme_override_font_sizes/font_size = 5
+offset_left = -34.0
+offset_top = -22.0
+offset_right = 6.0
+offset_bottom = -14.0
 text = "texs"
+label_settings = ExtResource("2_d18s1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
