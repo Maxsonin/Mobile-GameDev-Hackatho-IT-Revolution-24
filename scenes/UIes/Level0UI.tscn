@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d07swamehyfdw"]
 
 [ext_resource type="Script" path="res://scenes/UIes/Level0UI.gd" id="1_1tiug"]
+[ext_resource type="FontFile" uid="uid://bpl5e7xyyvirp" path="res://Assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_7hio0"]
 [ext_resource type="Texture2D" uid="uid://bskitcub2g60x" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/wood.png" id="3_tjiri"]
-[ext_resource type="LabelSettings" uid="uid://s2pb4p1i1awi" path="res://Assets/fonts/new_label_settings.tres" id="3_xlpt8"]
 [ext_resource type="Texture2D" uid="uid://csvp84j7x744a" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/metal.png" id="4_p8cq4"]
 [ext_resource type="Texture2D" uid="uid://ca4tko4nls1ah" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/stone.png" id="4_sb13i"]
 
@@ -30,23 +30,23 @@ offset_bottom = 20.0
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 7.0
-offset_top = 9.33333
+offset_top = 7.66666
 offset_right = 12.0
-offset_bottom = 17.3333
-theme_override_font_sizes/font_size = 9
+offset_bottom = 15.6667
+theme_override_fonts/font = ExtResource("2_7hio0")
+theme_override_font_sizes/font_size = 8
 text = "0"
-label_settings = ExtResource("3_xlpt8")
 
 [node name="WoodNumLabel" type="Label" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 28.6667
-offset_top = 9.33333
+offset_top = 7.66666
 offset_right = 33.6667
-offset_bottom = 17.3333
-theme_override_font_sizes/font_size = 9
+offset_bottom = 15.6667
+theme_override_fonts/font = ExtResource("2_7hio0")
+theme_override_font_sizes/font_size = 8
 text = "0"
-label_settings = ExtResource("3_xlpt8")
 
 [node name="MetalNumLabel" type="Label" parent="Panel"]
 unique_name_in_owner = true
@@ -55,8 +55,9 @@ offset_left = 50.3333
 offset_top = 7.66667
 offset_right = 55.3333
 offset_bottom = 15.6667
+theme_override_fonts/font = ExtResource("2_7hio0")
+theme_override_font_sizes/font_size = 8
 text = "0"
-label_settings = ExtResource("3_xlpt8")
 horizontal_alignment = 1
 vertical_alignment = 1
 

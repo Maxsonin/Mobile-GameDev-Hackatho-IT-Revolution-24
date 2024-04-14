@@ -117,12 +117,6 @@ position = Vector2(10.8, 11.2)
 scale = Vector2(0.0449735, 0.0488372)
 texture_normal = ExtResource("10_qsx87")
 
-[node name="Panel" type="Panel" parent="CharacterBody2D"]
-offset_left = 55.0
-offset_top = 3.0
-offset_right = 102.0
-offset_bottom = 55.0
-
 [node name="Label" type="Label" parent="CharacterBody2D"]
 offset_left = 55.0
 offset_top = 2.0
@@ -130,6 +124,12 @@ offset_right = 102.0
 offset_bottom = 53.0
 label_settings = SubResource("LabelSettings_xpt1c")
 autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="CharacterBody2D"]
+offset_left = 55.0
+offset_top = 3.0
+offset_right = 102.0
+offset_bottom = 55.0
 
 [node name="Borders" type="Node" parent="."]
 

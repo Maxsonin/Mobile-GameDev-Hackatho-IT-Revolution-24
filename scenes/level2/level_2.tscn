@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp7x30e1k7urr" path="res://scenes/level2/npc.tscn" id="3_p0pyx"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="4_lwv3j"]
 [ext_resource type="Texture2D" uid="uid://1asfxuvl67nx" path="res://img/pig.png" id="7_vcibd"]
-[ext_resource type="LabelSettings" uid="uid://badnjvfft7av1" path="res://scenes/level2/level_2.tres" id="9_ywr7q"]
+[ext_resource type="LabelSettings" path="res://scenes/level2/level_2.tres" id="9_ywr7q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0smx"]
 atlas = ExtResource("7_vcibd")
