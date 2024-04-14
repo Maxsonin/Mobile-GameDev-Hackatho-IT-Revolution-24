@@ -8,6 +8,7 @@ extends Node
 
 var shots = 0
 var dragon_killed = false
+var can_shoot = true
 
 signal player_got_hit
 
@@ -50,7 +51,11 @@ func _on_timer_timeout() -> void:
 
 
 func _on_fight_bulava_pressed() -> void:
-	spawn(main_character.position, true)
+	if can_shoot:
+		spawn(main_character.position, true)
+		can_shoot = false
+		await get_tree().create_timer(1.0).timeout
+		can_shoot = true
 
 
 func _on_real_boss_dragon_killed() -> void:

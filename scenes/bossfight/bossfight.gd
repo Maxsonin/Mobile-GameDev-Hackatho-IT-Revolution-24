@@ -4,6 +4,7 @@ extends Node2D
 
 var played = false
 var victory = false
+var player_killed = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -22,11 +23,12 @@ func change_scene():
 
 
 func _on_generator_player_got_hit() -> void:
+	player_killed = true
 	change_scene()
 
 
 func _on_scene_trasition_transitioned() -> void:
-	if victory:
+	if victory and !player_killed:
 		get_tree().change_scene_to_file("res://scenes/mainmenu/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/deathscreen/death_screen.tscn")
