@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb6roldujw7pu"]
+[gd_scene load_steps=11 format=3 uid="uid://bb6roldujw7pu"]
 
 [ext_resource type="Script" path="res://scenes/bossfight/bossfight.gd" id="1_0me77"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_lfp1d"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="2_ljk7l"]
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="3_bkhk3"]
 [ext_resource type="PackedScene" uid="uid://btubxdy7ccdqm" path="res://scenes/weapon.tscn" id="7_iim5q"]
+[ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="9_ms6m2"]
 [ext_resource type="PackedScene" uid="uid://cvlcnxhqwghfe" path="res://scenes/bossfight/real_boss.tscn" id="9_vaa2x"]
 [ext_resource type="PackedScene" uid="uid://6nuasygrlu5y" path="res://scenes/bossfight/fire_ball.tscn" id="15_btaq3"]
 [ext_resource type="Script" path="res://scenes/bossfight/Generator.gd" id="15_kel6k"]
@@ -23,7 +24,7 @@ position = Vector2(151, 148)
 scale = Vector2(20, 1)
 
 [node name="InvisibleWall3" parent="." instance=ExtResource("2_ljk7l")]
-position = Vector2(310, 65)
+position = Vector2(323, 66)
 rotation = 1.57079
 scale = Vector2(20, 1)
 
@@ -70,7 +71,12 @@ position = Vector2(235, 115)
 scale = Vector2(49, 16)
 texture_normal = SubResource("CanvasTexture_jd021")
 
+[node name="SceneTrasition" parent="." instance=ExtResource("9_ms6m2")]
+
+[connection signal="player_got_hit" from="Generator" to="." method="_on_generator_player_got_hit"]
 [connection signal="player_got_hit" from="Generator" to="MainCharacter" method="_on_generator_player_got_hit"]
 [connection signal="timeout" from="Timer" to="Generator" method="_on_timer_timeout"]
+[connection signal="dragon_killed" from="RealBoss" to="." method="_on_real_boss_dragon_killed"]
 [connection signal="dragon_killed" from="RealBoss" to="Generator" method="_on_real_boss_dragon_killed"]
 [connection signal="pressed" from="Control/FightBulava" to="Generator" method="_on_fight_bulava_pressed"]
+[connection signal="transitioned" from="SceneTrasition" to="." method="_on_scene_trasition_transitioned"]
