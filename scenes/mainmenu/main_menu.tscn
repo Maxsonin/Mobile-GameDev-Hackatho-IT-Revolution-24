@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg3mmb5dvl08h"]
+[gd_scene load_steps=10 format=3 uid="uid://dg3mmb5dvl08h"]
 
 [ext_resource type="Script" path="res://scenes/mainmenu/ParallaxBackground.gd" id="2_whsxm"]
 [ext_resource type="Texture2D" uid="uid://cg8t2ob04yn3j" path="res://img/background/menu/1.png" id="3_omut2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2adphgcwlyvg" path="res://img/background/menu/4.png" id="6_qyx4u"]
 [ext_resource type="Texture2D" uid="uid://421ep8yef168" path="res://Assets/buttons/play.png" id="7_0pagw"]
 [ext_resource type="Script" path="res://scenes/mainmenu/Control.gd" id="7_wghmq"]
+[ext_resource type="AudioStream" uid="uid://s1abhxrb2d1s" path="res://sound/main.mp3" id="8_grul5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc0g1"]
 size = Vector2(383.56, 169.48)
@@ -68,5 +69,9 @@ motion_mirroring = Vector2(292, 0)
 position = Vector2(146, 67)
 scale = Vector2(0.506944, 0.41358)
 texture = ExtResource("6_qyx4u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_grul5")
+autoplay = true
 
 [connection signal="pressed" from="Control/TouchScreenButton" to="Control" method="_on_touch_screen_button_pressed"]

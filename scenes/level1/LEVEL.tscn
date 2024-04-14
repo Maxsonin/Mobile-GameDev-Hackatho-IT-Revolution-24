@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0ieuc3rlnfad"]
+[gd_scene load_steps=20 format=3 uid="uid://b0ieuc3rlnfad"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_2ei06"]
 [ext_resource type="Script" path="res://scenes/level1/LEVEL.gd" id="1_63ka3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="12_r5udp"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="13_d7xu8"]
 [ext_resource type="PackedScene" uid="uid://x83jnlhefpgp" path="res://controlsUI/dirControl/dir_control.tscn" id="14_xp8on"]
+[ext_resource type="AudioStream" uid="uid://d0ibkhpa4ex8s" path="res://sound/level1.mp3" id="15_b14i6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynv1n"]
 atlas = ExtResource("2_wkhse")
@@ -118,6 +119,12 @@ position = Vector2(10.8, 11.2)
 scale = Vector2(0.0449735, 0.0488372)
 texture_normal = ExtResource("10_qsx87")
 
+[node name="Panel" type="Panel" parent="CharacterBody2D"]
+offset_left = 55.0
+offset_top = 3.0
+offset_right = 102.0
+offset_bottom = 55.0
+
 [node name="Label" type="Label" parent="CharacterBody2D"]
 offset_left = 55.0
 offset_top = 2.0
@@ -125,12 +132,6 @@ offset_right = 102.0
 offset_bottom = 53.0
 label_settings = SubResource("LabelSettings_xpt1c")
 autowrap_mode = 2
-
-[node name="Panel" type="Panel" parent="CharacterBody2D"]
-offset_left = 55.0
-offset_top = 3.0
-offset_right = 102.0
-offset_bottom = 55.0
 
 [node name="Borders" type="Node" parent="."]
 
@@ -165,6 +166,10 @@ scale = Vector2(8.41, 0.25)
 [node name="InvisibleWall2" parent="." instance=ExtResource("12_r5udp")]
 position = Vector2(260.8, 44)
 scale = Vector2(5.9, 0.5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_b14i6")
+autoplay = true
 
 [connection signal="body_entered" from="CharacterBody2D/AnimatedSprite2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="CharacterBody2D/Control/help" to="CharacterBody2D" method="_on_help_pressed"]

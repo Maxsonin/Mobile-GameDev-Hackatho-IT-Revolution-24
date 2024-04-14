@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkrtiq007hbu6"]
+[gd_scene load_steps=13 format=3 uid="uid://bkrtiq007hbu6"]
 
 [ext_resource type="Script" path="res://scenes/worlds/Level0/Level0.gd" id="1_3sbkq"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_gw2je"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bh0emg14n1yjp" path="res://scenes/worlds/Level0/Collectbles/random_spawner.tscn" id="9_fo4in"]
 [ext_resource type="Texture2D" uid="uid://fpo0r5lose2k" path="res://scenes/worlds/Level0/level0Assets/sign/sign.png" id="10_a5v80"]
 [ext_resource type="PackedScene" uid="uid://x83jnlhefpgp" path="res://controlsUI/dirControl/dir_control.tscn" id="12_sc8yi"]
+[ext_resource type="AudioStream" uid="uid://btd3lehsfkmaw" path="res://sound/level0.mp3" id="12_yegv6"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -97,3 +98,7 @@ position = Vector2(170, 235)
 rotation = 0.350811
 scale = Vector2(0.093, 0.098)
 texture = ExtResource("10_a5v80")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_yegv6")
+autoplay = true

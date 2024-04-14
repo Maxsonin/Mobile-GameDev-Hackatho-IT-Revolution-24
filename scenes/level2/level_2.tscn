@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://st1v0fmsx3mc"]
+[gd_scene load_steps=24 format=3 uid="uid://st1v0fmsx3mc"]
 
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="1_e00lh"]
 [ext_resource type="PackedScene" uid="uid://dbf8a8cj7e8rq" path="res://utility/invisibleWall/invisibleWalls.tscn" id="1_gos30"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://085xg8eitu0h" path="res://mainCharacter/main_character.tscn" id="4_lwv3j"]
 [ext_resource type="Texture2D" uid="uid://1asfxuvl67nx" path="res://img/pig.png" id="7_vcibd"]
 [ext_resource type="LabelSettings" uid="uid://badnjvfft7av1" path="res://scenes/level2/level_2.tres" id="9_ywr7q"]
+[ext_resource type="AudioStream" uid="uid://bfqsjsw3dv5fm" path="res://sound/level2.mp3" id="11_ipwiy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0smx"]
 atlas = ExtResource("7_vcibd")
@@ -317,6 +318,10 @@ position = Vector2(144, 67)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stoilo"]
 position = Vector2(105, -10)
 shape = SubResource("RectangleShape2D_7j5ky")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ipwiy")
+autoplay = true
 
 [connection signal="in_stoilo" from="Pig" to="." method="_on_pig_in_stoilo"]
 [connection signal="in_stoilo" from="Pig" to="Npc" method="_on_pig_in_stoilo"]
