@@ -2,7 +2,7 @@ extends Collectable
 
 @onready var resourse_manager = $"../ResourseManager"
 @onready var ui = $"../MainCharacter/UI"
-@onready var npc = $"../Npc"
+#@onready var npc = $"../Npc"
 
 func _on_body_entered(body):
 	if body.name == "MainCharacter" and npc.activated == true:

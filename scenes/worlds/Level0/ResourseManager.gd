@@ -1,8 +1,8 @@
 extends Node
 
-var stone: int = 0
-var wood: int = 0
-var metal: int = 0
+var stone: int = 15
+var wood: int = 20
+var metal: int = 10
 
 func add_wood() -> void:
 	wood += 1

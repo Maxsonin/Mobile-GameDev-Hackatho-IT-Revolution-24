@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkrtiq007hbu6"]
+[gd_scene load_steps=10 format=3 uid="uid://bkrtiq007hbu6"]
 
 [ext_resource type="Script" path="res://scenes/worlds/Level0/Level0.gd" id="1_3sbkq"]
 [ext_resource type="TileSet" uid="uid://bts106mttgyup" path="res://Assets/mainSets.tres" id="2_gw2je"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c7xhhby0desrl" path="res://scenes/worlds/Level0/nps/blacksmithNPS.tscn" id="7_kn7ii"]
 [ext_resource type="PackedScene" uid="uid://c6omje6eu138a" path="res://utility/transition/scene_trasition.tscn" id="9_7d6pc"]
 [ext_resource type="PackedScene" uid="uid://bh0emg14n1yjp" path="res://scenes/worlds/Level0/Collectbles/random_spawner.tscn" id="9_fo4in"]
-[ext_resource type="Texture2D" uid="uid://fpo0r5lose2k" path="res://scenes/worlds/Level0/level0Assets/sign/sign.png" id="10_a5v80"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -83,10 +82,3 @@ offset_left = -19.0
 offset_top = -21.5
 offset_right = 48.0
 offset_bottom = 0.5
-
-[node name="Sign" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(170, 235)
-rotation = 0.350811
-scale = Vector2(0.093, 0.098)
-texture = ExtResource("10_a5v80")

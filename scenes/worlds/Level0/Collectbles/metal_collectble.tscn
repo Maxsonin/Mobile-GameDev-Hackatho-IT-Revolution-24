@@ -5,14 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://csvp84j7x744a" path="res://scenes/worlds/Level0/level0Assets/inventoryImgs/metal.png" id="3_kqj8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcxp4"]
-size = Vector2(16, 8)
+size = Vector2(8, 8)
 
 [node name="MetalCollectble" instance=ExtResource("1_xoybh")]
+scale = Vector2(3, 3)
 script = ExtResource("2_exugw")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.00833333, 0.00416667)
+position = Vector2(4, 4)
+scale = Vector2(0.00416667, 0.00416667)
 texture = ExtResource("3_kqj8o")
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_dcxp4")

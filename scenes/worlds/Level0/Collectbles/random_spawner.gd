@@ -1,6 +1,7 @@
 extends Node
 
 @onready var spawn_timer = $SpawnTimer as Timer
+@onready var npc = $"../Npc"
 
 @export var stone_scene: PackedScene
 @export var wood_scene: PackedScene

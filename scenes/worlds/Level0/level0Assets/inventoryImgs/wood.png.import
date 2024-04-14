@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4tko4nls1ah"
-path="res://.godot/imported/b918860d89d6ce3139dc89f8a3843aa6.png-efb96cc3e69eee132de7311c2ab754ee.ctex"
+uid="uid://bskitcub2g60x"
+path="res://.godot/imported/wood.png-ec1fb5fb375043b87f62e8702f2b8cb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/worlds/Level0/level0Assets/inventoryImgs/b918860d89d6ce3139dc89f8a3843aa6.png"
-dest_files=["res://.godot/imported/b918860d89d6ce3139dc89f8a3843aa6.png-efb96cc3e69eee132de7311c2ab754ee.ctex"]
+source_file="res://scenes/worlds/Level0/level0Assets/inventoryImgs/wood.png"
+dest_files=["res://.godot/imported/wood.png-ec1fb5fb375043b87f62e8702f2b8cb7.ctex"]
 
 [params]
 
