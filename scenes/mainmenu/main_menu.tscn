@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://86g0bkkh6lmp" path="res://img/background/menu/2.png" id="4_s4lm4"]
 [ext_resource type="Texture2D" uid="uid://cvvw2vj4famh1" path="res://img/background/menu/3.png" id="5_y4sq4"]
 [ext_resource type="Texture2D" uid="uid://c2adphgcwlyvg" path="res://img/background/menu/4.png" id="6_qyx4u"]
-[ext_resource type="Texture2D" uid="uid://by400debk8war" path="res://img/buttons/play.png" id="7_0pagw"]
+[ext_resource type="Texture2D" uid="uid://421ep8yef168" path="res://Assets/buttons/play.png" id="7_0pagw"]
 [ext_resource type="Script" path="res://scenes/mainmenu/Control.gd" id="7_wghmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc0g1"]
